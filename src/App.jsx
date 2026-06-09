@@ -4,11 +4,27 @@ import './App.css';
 import opzData from './data.json';
 
 function App() {
-  const [inputText, setInputText] = useState('');
-  const [numCols, setNumCols] = useState(5);
+  // Read initial state from URL hash if available (for sharing)
+  const getInitialState = () => {
+    try {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        return JSON.parse(decodeURIComponent(atob(hash)));
+      }
+    } catch (e) {
+      console.error("Failed to parse URL hash state", e);
+    }
+    return null;
+  };
+
+  const initialState = getInitialState();
+
+  const [inputText, setInputText] = useState(initialState?.t || '');
+  const [numCols, setNumCols] = useState(initialState?.c || 5);
   
-  // Load initial scale from localStorage or default to empty object
+  // Load initial scale from URL, then localStorage, or default to empty object
   const [itemScales, setItemScales] = useState(() => {
+    if (initialState?.s) return initialState.s;
     try {
       const saved = localStorage.getItem('logo-arranger-scales');
       return saved ? JSON.parse(saved) : {};
@@ -23,6 +39,26 @@ function App() {
   useEffect(() => {
     localStorage.setItem('logo-arranger-scales', JSON.stringify(itemScales));
   }, [itemScales]);
+
+  // Sync state to URL hash so it can be shared with friends
+  useEffect(() => {
+    const state = {
+      t: inputText,
+      c: numCols,
+      s: itemScales
+    };
+    try {
+      const encoded = btoa(encodeURIComponent(JSON.stringify(state)));
+      window.history.replaceState(null, '', `#${encoded}`);
+    } catch (e) {
+      // Ignore encoding errors if text is too weird
+    }
+  }, [inputText, numCols, itemScales]);
+
+  const copyShareLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link berhasil di-copy! Silakan kirim link ini ke teman Anda agar mereka melihat susunan & ukuran yang sama persis.");
+  };
 
   // Parse input and match logos
   const matchedLogos = useMemo(() => {
@@ -52,10 +88,10 @@ function App() {
   const gridStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '0', 
+    gap: '0', // "saling nempel aka, ga ada jarak"
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#ffffff', // "belakangnya putih"
     padding: '20px',
     minWidth: `${numCols * 100}px` // Memastikan tiap logo minimal punya lebar 100px
   };
@@ -109,8 +145,8 @@ function App() {
             />
           </div>
 
-          <div style={{ display: 'flex', gap: '20px' }}>
-            <div className="form-group" style={{ flex: 1 }}>
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-end' }}>
+            <div className="form-group" style={{ flex: 1, marginBottom: 0 }}>
               <label htmlFor="col-input">Jumlah Kolom</label>
               <input
                 type="number"
@@ -120,6 +156,9 @@ function App() {
                 min={1}
               />
             </div>
+            <button className="export-btn" onClick={copyShareLink} style={{ background: '#10b981' }}>
+              🔗 Copy Link untuk Teman
+            </button>
           </div>
         </div>
 
