@@ -1,0 +1,186 @@
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import html2canvas from 'html2canvas';
+import './App.css';
+import opzData from './data.json';
+
+function App() {
+  const [inputText, setInputText] = useState('');
+  const [numCols, setNumCols] = useState(5);
+  
+  // Load initial scale from localStorage or default to empty object
+  const [itemScales, setItemScales] = useState(() => {
+    try {
+      const saved = localStorage.getItem('logo-arranger-scales');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const exportRef = useRef(null);
+
+  // Save scale to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('logo-arranger-scales', JSON.stringify(itemScales));
+  }, [itemScales]);
+
+  // Parse input and match logos
+  const matchedLogos = useMemo(() => {
+    if (!inputText.trim()) return [];
+    
+    // Split by comma or newline
+    const names = inputText.split(/[,\n]+/).map(n => n.trim()).filter(n => n.length > 0);
+    
+    const logos = names.map(name => {
+      // Find matching OPZ (case insensitive, partial match or exact match)
+      const match = opzData.find(opz => opz.name.toLowerCase() === name.toLowerCase()) 
+        || opzData.find(opz => opz.name.toLowerCase().includes(name.toLowerCase()));
+      
+      return {
+        queryName: name,
+        found: !!match,
+        logoData: match || null
+      };
+    });
+
+    return logos;
+  }, [inputText]);
+
+  const validLogos = matchedLogos.filter(item => item.found);
+
+  // Calculate CSS flex properties to allow bottom row centering
+  const gridStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '0', 
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    padding: '20px',
+    minWidth: `${numCols * 100}px` // Memastikan tiap logo minimal punya lebar 100px
+  };
+
+  const updateScale = (name, delta) => {
+    setItemScales(prev => {
+      const currentScale = prev[name] || 1;
+      const newScale = Math.max(0.5, Math.min(4, currentScale + delta));
+      return { ...prev, [name]: newScale };
+    });
+  };
+
+  const handleExport = async () => {
+    if (!exportRef.current) return;
+    
+    try {
+      const canvas = await html2canvas(exportRef.current, {
+        scale: 3, // High resolution
+        backgroundColor: '#ffffff',
+        useCORS: true
+      });
+      
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = `logo-arranger-${Date.now()}.png`;
+      link.click();
+    } catch (err) {
+      console.error("Export failed:", err);
+      alert("Gagal mengekspor gambar. Silakan coba lagi.");
+    }
+  };
+
+  return (
+    <div className="app-container">
+      <header className="app-header">
+        <h1>Logo Arranger</h1>
+        <p>Susun logo OPZ dengan mudah</p>
+      </header>
+
+      <main className="app-content">
+        <div className="controls-card">
+          <div className="form-group">
+            <label htmlFor="opz-input">Masukkan Nama OPZ (Pisahkan dengan koma atau baris baru)</label>
+            <textarea
+              id="opz-input"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
+              rows={5}
+            />
+          </div>
+
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <div className="form-group" style={{ flex: 1 }}>
+              <label htmlFor="col-input">Jumlah Kolom</label>
+              <input
+                type="number"
+                id="col-input"
+                value={numCols}
+                onChange={(e) => setNumCols(Math.max(1, parseInt(e.target.value) || 1))}
+                min={1}
+              />
+            </div>
+          </div>
+        </div>
+
+        {matchedLogos.length > 0 && (
+          <div className="results-section">
+            <div className="stats">
+              Ditemukan {validLogos.length} dari {matchedLogos.length} nama OPZ.
+            </div>
+            
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
+              <button className="export-btn" onClick={handleExport}>
+                📸 Export to PNG (High Res)
+              </button>
+            </div>
+
+            <div className="logo-grid-container" style={{ overflowX: 'auto' }}>
+              <div ref={exportRef} style={gridStyle}>
+                {validLogos.map((item, idx) => {
+                  const currentScale = itemScales[item.logoData.name] || 1;
+                  return (
+                    <div 
+                      key={idx} 
+                      className="logo-item"
+                      style={{
+                        width: `calc(100% / ${numCols})`
+                      }}
+                    >
+                      <img 
+                        src={`/logos/${item.logoData.logo}`} 
+                        alt={item.logoData.name} 
+                        title={item.logoData.name}
+                        style={{ 
+                          transform: `scale(${currentScale})`,
+                          transition: 'transform 0.2s ease',
+                          transformOrigin: 'center'
+                        }}
+                      />
+                      <div className="zoom-controls" data-html2canvas-ignore="true">
+                        <button onClick={() => updateScale(item.logoData.name, -0.1)}>-</button>
+                        <span>{currentScale.toFixed(1)}x</span>
+                        <button onClick={() => updateScale(item.logoData.name, 0.1)}>+</button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {matchedLogos.some(item => !item.found) && (
+              <div className="missing-logos">
+                <p style={{width: '100%', color: '#fca5a5', fontSize: '0.9rem', marginBottom: '10px'}}>Tidak ditemukan:</p>
+                {matchedLogos.filter(item => !item.found).map((item, idx) => (
+                  <span key={idx} className="missing-badge">❌ {item.queryName}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+
+export default App;

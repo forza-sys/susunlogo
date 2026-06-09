@@ -1,0 +1,987 @@
+[
+  {
+    "name": "Dompet Dhuafa",
+    "scale": "Nasional",
+    "logo": "Dompet Dhuafa.png"
+  },
+  {
+    "name": "MAI Foundation",
+    "scale": "Nasional",
+    "logo": "MAI FOUNDATION.png"
+  },
+  {
+    "name": "Baituzzakah Pertamina",
+    "scale": "Nasional",
+    "logo": "BAZMA.png"
+  },
+  {
+    "name": "Baitul Maal Pupuk Kujang",
+    "scale": "Kab/Kota",
+    "logo": "Baitul Maal Pupuk Kujang.png"
+  },
+  {
+    "name": "Baitul Maal Muamalat (BMM)",
+    "scale": "Nasional",
+    "logo": "BMM.png"
+  },
+  {
+    "name": "BAMUIS BNI",
+    "scale": "Nasional",
+    "logo": "Bamuis BNI.png"
+  },
+  {
+    "name": "MTT Telkomsel",
+    "scale": "Nasional",
+    "logo": "MTT.png"
+  },
+  {
+    "name": "Rumah Zakat",
+    "scale": "Nasional",
+    "logo": "Rumah Zakat.png"
+  },
+  {
+    "name": "Inisiatif Zakat Indonesia (IZI)",
+    "scale": "Nasional",
+    "logo": "Inisiatif Zakat Indonesia.png"
+  },
+  {
+    "name": "Baitul Maal Hidayatullah (BMH)",
+    "scale": "Nasional",
+    "logo": "logo bmh.webp"
+  },
+  {
+    "name": "DT Peduli",
+    "scale": "Nasional",
+    "logo": "dtpeduli.png"
+  },
+  {
+    "name": "LAZ Al-Azhar",
+    "scale": "Nasional",
+    "logo": "AL Azhar.png"
+  },
+  {
+    "name": "LAZNAS LMI",
+    "scale": "Nasional",
+    "logo": "LMI.png"
+  },
+  {
+    "name": "LAZNAS YDSF",
+    "scale": "Nasional",
+    "logo": "YDSF.png"
+  },
+  {
+    "name": "PPPA Daarul Qur’an",
+    "scale": "Nasional",
+    "logo": "PPPA.png"
+  },
+  {
+    "name": "LAZIS Muhammadiyah (LAZISMU)",
+    "scale": "Nasional",
+    "logo": "lazismu.png"
+  },
+  {
+    "name": "YBM BRILiaN",
+    "scale": "Nasional",
+    "logo": "ybm brilian program.png"
+  },
+  {
+    "name": "YBM PLN",
+    "scale": "Nasional",
+    "logo": "YBM PLN.png"
+  },
+  {
+    "name": "BSI Maslahat",
+    "scale": "Nasional",
+    "logo": "BSI Maslahat.png"
+  },
+  {
+    "name": "LAZNAS Rumah Yatim Ar-Rohman",
+    "scale": "Nasional",
+    "logo": "Rumah Yatim.png"
+  },
+  {
+    "name": "LAZ Persis",
+    "scale": "Nasional",
+    "logo": "laz persis.png"
+  },
+  {
+    "name": "Amaliah Astra",
+    "scale": "Nasional",
+    "logo": "amaliah astra.png"
+  },
+  {
+    "name": "LAZNAS Dewan Da’wah Islamiyah Indonesia",
+    "scale": "Nasional",
+    "logo": "LAZWAF DEWAN DAKWAH.png"
+  },
+  {
+    "name": "LAZNAS Nurul Hayat",
+    "scale": "Nasional",
+    "logo": "nurul hayat.png"
+  },
+  {
+    "name": "LAZIS Jateng",
+    "scale": "Provinsi",
+    "logo": "LAZIS JATENG.png"
+  },
+  {
+    "name": "Portal Infaq",
+    "scale": "Kab/Kota",
+    "logo": "Portal Infaq.png"
+  },
+  {
+    "name": "Jakarta Amanah Mulia",
+    "scale": "Kab/Kota",
+    "logo": "Jakarta Amanah.png"
+  },
+  {
+    "name": "BANGKIT Foundation",
+    "scale": "Kab/Kota",
+    "logo": "Bangkit Foundation.png"
+  },
+  {
+    "name": "NU-Care LAZISNU",
+    "scale": "Nasional",
+    "logo": "NU CARE.png"
+  },
+  {
+    "name": "LAZ Harapan Dhuafa",
+    "scale": "Provinsi",
+    "logo": "Rumah Harapan.png"
+  },
+  {
+    "name": "LAZ Dompet Amanah Umat",
+    "scale": "Kab/Kota",
+    "logo": "dompet amanah umat.png"
+  },
+  {
+    "name": "Solo Peduli",
+    "scale": "Provinsi",
+    "logo": "solopeduli.png"
+  },
+  {
+    "name": "Baitulmal FKAM",
+    "scale": "Provinsi",
+    "logo": "BM FKAM.png"
+  },
+  {
+    "name": "ZIS Indosat",
+    "scale": "Nasional",
+    "logo": "ZIS Indosat.png"
+  },
+  {
+    "name": "LAZ DASI NTB",
+    "scale": "Provinsi",
+    "logo": "laz dasi ntb.png"
+  },
+  {
+    "name": "Dompet Peduli Lentera Hati (DPLH)",
+    "scale": "Kab/Kota",
+    "logo": "DP-LH.png"
+  },
+  {
+    "name": "DSM Bali",
+    "scale": "Provinsi",
+    "logo": "DSM dompet sosial.png"
+  },
+  {
+    "name": "Gerak Sedekah Cilacap",
+    "scale": "Kab/Kota",
+    "logo": "LAZ CILACAP.png"
+  },
+  {
+    "name": "Indonesia Berbagi",
+    "scale": "Kab/Kota",
+    "logo": "Indonesia Berbagi.png"
+  },
+  {
+    "name": "LAZ Al Bunyan",
+    "scale": "Provinsi",
+    "logo": "Al Bunyan.png"
+  },
+  {
+    "name": "LAZ AS Salaam Jayapura",
+    "scale": "Provinsi",
+    "logo": "LAZ As Salaam Jayapura.png"
+  },
+  {
+    "name": "LAZ Cilacap",
+    "scale": "Kab/Kota",
+    "logo": "LAZ CILACAP.png"
+  },
+  {
+    "name": "LAZGIS",
+    "scale": "Provinsi",
+    "logo": "laz gis peduli new.png"
+  },
+  {
+    "name": "LAZ Ibnu Sina",
+    "scale": "Kab/Kota",
+    "logo": "laz ibnu sina.png"
+  },
+  {
+    "name": "LAZ Lidzikri",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Lidzikri.png"
+  },
+  {
+    "name": "LAZ Nurul Fikri",
+    "scale": "Provinsi",
+    "logo": "NF Center.png"
+  },
+  {
+    "name": "LAZ Swadaya Ummah",
+    "scale": "Kab/Kota",
+    "logo": "Swadaya Ummah.png"
+  },
+  {
+    "name": "LAZ Ulil Albab",
+    "scale": "Kab/Kota",
+    "logo": "ULUL ALBAB.png"
+  },
+  {
+    "name": "LAZ Ummul Quro",
+    "scale": "Provinsi",
+    "logo": "LAZ Ummul Quro.png"
+  },
+  {
+    "name": "LAZ YASA Malang",
+    "scale": "Kab/Kota",
+    "logo": "YASA MALANG.png"
+  },
+  {
+    "name": "LAZ Zakat Sukses",
+    "scale": "Provinsi",
+    "logo": "Zakat Sukses.png"
+  },
+  {
+    "name": "LAZIS Nurul Falah",
+    "scale": "Provinsi",
+    "logo": "Lazis Nurul Falah.png"
+  },
+  {
+    "name": "LAZIS Syuhada",
+    "scale": "Kab/Kota",
+    "logo": "Lazis Syuhada.png"
+  },
+  {
+    "name": "Wahdah Inspirasi Zakat",
+    "scale": "Nasional",
+    "logo": "Wahdah Inspirasi Zakat.png"
+  },
+  {
+    "name": "LAZNAS Yatim Mandiri",
+    "scale": "Nasional",
+    "logo": "Rumah Yatim.png"
+  },
+  {
+    "name": "Pondok Sedekah Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "Pondok Sedekah.png"
+  },
+  {
+    "name": "Rumah Harapan",
+    "scale": "Kab/Kota",
+    "logo": "Rumah Harapan.png"
+  },
+  {
+    "name": "Rumah Pemberdayaan Ummat",
+    "scale": "Kab/Kota",
+    "logo": "RPU.png"
+  },
+  {
+    "name": "Sahabat Dhuafa Mandiri",
+    "scale": "Kab/Kota",
+    "logo": "Sahabat Dhuafa.png"
+  },
+  {
+    "name": "Sahabat Mustahiq Sejahtera",
+    "scale": "Provinsi",
+    "logo": "Sahabat Mustahiq.png"
+  },
+  {
+    "name": "Sinergi Foundation",
+    "scale": "Provinsi",
+    "logo": "Sinergi Foundation.png"
+  },
+  {
+    "name": "Bakrie Amanah",
+    "scale": "Nasional",
+    "logo": "Bakrie Amanah.png"
+  },
+  {
+    "name": "Insan Madani Jambi",
+    "scale": "Provinsi",
+    "logo": "Yayasan Insan Madani Jambi.png"
+  },
+  {
+    "name": "Kotak Amal Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "Kotak Amal.png"
+  },
+  {
+    "name": "YAKESMA",
+    "scale": "Nasional",
+    "logo": "YAKESMA.png"
+  },
+  {
+    "name": "Pulau Harapan Cendekia",
+    "scale": "Kab/Kota",
+    "logo": "Pulau Harapan Cendekia.png"
+  },
+  {
+    "name": "LAZ YRA",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Rahmatul Anwar.png"
+  },
+  {
+    "name": "Rumah Amal Salman",
+    "scale": "Nasional",
+    "logo": "Rumah Amal Salman.png"
+  },
+  {
+    "name": "LAZ RYDHA",
+    "scale": "Kab/Kota",
+    "logo": "rydha new.png"
+  },
+  {
+    "name": "Sedekah Harian",
+    "scale": "Kab/Kota",
+    "logo": "Sedekah Harian.png"
+  },
+  {
+    "name": "Tenda Visi",
+    "scale": "Kab/Kota",
+    "logo": "Tevis.png"
+  },
+  {
+    "name": "Baitulmal Tazkia",
+    "scale": "Kab/Kota",
+    "logo": "TAZKIA Baitulmal.png"
+  },
+  {
+    "name": "LAZ DPU Kaltim",
+    "scale": "Provinsi",
+    "logo": "DPU KALTIM.png"
+  },
+  {
+    "name": "LAZ Batam",
+    "scale": "Kab/Kota",
+    "logo": "LAZ BATAM.png"
+  },
+  {
+    "name": "Harapan Amal Mulia",
+    "scale": "Kab/Kota",
+    "logo": "Harapan Amal Mulia.png"
+  },
+  {
+    "name": "LAZIS Sultan Agung",
+    "scale": "Provinsi",
+    "logo": "LAZIS Sultan Agung.png"
+  },
+  {
+    "name": "Baitul Maal BMT Beringharjo",
+    "scale": "Kab/Kota",
+    "logo": "LOGO-BMT-Beringharjo.png"
+  },
+  {
+    "name": "Sahabat Asnaf Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "sahabat asnaf indonesia.jpg"
+  },
+  {
+    "name": "Dompet Al-Qur'an Indonesia",
+    "scale": "Provinsi",
+    "logo": "Dompet Al-Quran Indonesia.png"
+  },
+  {
+    "name": "Baitul Maal Amanah",
+    "scale": "Kab/Kota",
+    "logo": "Baitul Maal Amanah Blitar.png"
+  },
+  {
+    "name": "UPZ UNS",
+    "scale": "Kab/Kota",
+    "logo": "LAZIS UNS.png"
+  },
+  {
+    "name": "MTUA Rekind",
+    "scale": "Kab/Kota",
+    "logo": "MTUA REKIND.png"
+  },
+  {
+    "name": "PAY & DOiT",
+    "scale": "Kab/Kota",
+    "logo": "PAY DoIT.png"
+  },
+  {
+    "name": "Pelopor Kepedulian",
+    "scale": "Kab/Kota",
+    "logo": "pelopor kepedulian.png"
+  },
+  {
+    "name": "Rumah Sosial KUTUB (R-SIK)",
+    "scale": "Kab/Kota",
+    "logo": "Rumah Sosial KUTUB (R-SIK).png"
+  },
+  {
+    "name": "LAZ Al Irsyad",
+    "scale": "Nasional",
+    "logo": "LAZ Al Irsyad.png"
+  },
+  {
+    "name": "LAZ DKD Magelang",
+    "scale": "Kab/Kota",
+    "logo": "LAZ DKD Magelang.png"
+  },
+  {
+    "name": "Dompet Sejuta Harapan",
+    "scale": "Kab/Kota",
+    "logo": "Dompet Sejuta Harapan.png"
+  },
+  {
+    "name": "LAZ Ibadurrahman",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Ibadurrahman.png"
+  },
+  {
+    "name": "LAZ RIZKI",
+    "scale": "Kab/Kota",
+    "logo": "LAZ RIZKI.png"
+  },
+  {
+    "name": "LAZDAI Lampung",
+    "scale": "Provinsi",
+    "logo": "LAZDAI Lampung.png"
+  },
+  {
+    "name": "LAZIS Al Haromain",
+    "scale": "Provinsi",
+    "logo": "LAZIS Al Haromain.png"
+  },
+  {
+    "name": "LAZIS Khoiru Ummah",
+    "scale": "Kab/Kota",
+    "logo": "LAZIS Khoiru Ummah.png"
+  },
+  {
+    "name": "Solusi Zakat",
+    "scale": "Kab/Kota",
+    "logo": "Solusi Zakat.png"
+  },
+  {
+    "name": "U Care Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "U Care Indonesia.png"
+  },
+  {
+    "name": "Askar Kauny",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Askar Kauny.png"
+  },
+  {
+    "name": "Baitul Qur'an Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Dompet Amal Pecinta Al Qur'an.png"
+  },
+  {
+    "name": "DOMYADHU",
+    "scale": "Kab/Kota",
+    "logo": "DOMYADHU.png"
+  },
+  {
+    "name": "LAZISNUR",
+    "scale": "Kab/Kota",
+    "logo": "lazisnur.png"
+  },
+  {
+    "name": "Yuk Peduli",
+    "scale": "Kab/Kota",
+    "logo": "Yuk Peduli.png"
+  },
+  {
+    "name": "Infaq Berkah",
+    "scale": "Kab/Kota",
+    "logo": "infaq berkah.PNG"
+  },
+  {
+    "name": "STF UIN Syarif Hidayatullah",
+    "scale": "Provinsi",
+    "logo": "STF UIN Syarif Hidayatullah.png"
+  },
+  {
+    "name": "LAZ Darussalam",
+    "scale": "Nasional",
+    "logo": "LAZ Darussalam.png"
+  },
+  {
+    "name": "LAZNAS PHR",
+    "scale": "Provinsi",
+    "logo": "LAZNAS PHR.png"
+  },
+  {
+    "name": "Graha Yatim & Dhuafa",
+    "scale": "Kab/Kota",
+    "logo": "Graha Yatim & Dhuafa.png"
+  },
+  {
+    "name": "LAZ Al Kahfi Peduli",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Al Kahfi Peduli.png"
+  },
+  {
+    "name": "Taman Zakat Indonesia",
+    "scale": "Provinsi",
+    "logo": "Taman Zakat.png"
+  },
+  {
+    "name": "Itqan Peduli",
+    "scale": "Kab/Kota",
+    "logo": "itqan peduli.png"
+  },
+  {
+    "name": "LAZNAS Mizan Amanah",
+    "scale": "Nasional",
+    "logo": "LAZNAS Mizan Amanah.png"
+  },
+  {
+    "name": "Goedang Zakat Al- Khairaat",
+    "scale": "Kab/Kota",
+    "logo": "Goedang Zakat Al- Khairaat.png"
+  },
+  {
+    "name": "Panti Yatim & Zakat",
+    "scale": "Nasional",
+    "logo": "Panti Yatim & Zakat.png"
+  },
+  {
+    "name": "BaitulMaalKu",
+    "scale": "Provinsi",
+    "logo": "BaitulMaalKu.png"
+  },
+  {
+    "name": "Dompet Peduli Ummat Jatim",
+    "scale": "Kab/Kota",
+    "logo": "Dompet Peduli Ummat Jatim.png"
+  },
+  {
+    "name": "UPZ BAZNAS Semen Padang",
+    "scale": "Provinsi",
+    "logo": "UPZ BAZNAS Semen Padang.png"
+  },
+  {
+    "name": "Huda Cendekia",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Huda Cendekia.png"
+  },
+  {
+    "name": "Amanah Takaful",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Amanah Takaful.png"
+  },
+  {
+    "name": "LAZIS Al Hilal",
+    "scale": "Provinsi",
+    "logo": "LAZIS Al Hilal.png"
+  },
+  {
+    "name": "LAZIS Qur'an",
+    "scale": "Kab/Kota",
+    "logo": "LAZISQU Lazis Qur'an.png"
+  },
+  {
+    "name": "Suara Hati Sidoarjo",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Suara Hati Sidoarjo.png"
+  },
+  {
+    "name": "Amal Terbaik Madania",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Amal Terbaik Madania.png"
+  },
+  {
+    "name": "ZISWAF At - Taufiq",
+    "scale": "Kab/Kota",
+    "logo": "ZISWAF At - Taufiq.png"
+  },
+  {
+    "name": "OK OCE Peduli",
+    "scale": "Kab/Kota",
+    "logo": "OK OCE Peduli.png"
+  },
+  {
+    "name": "LAZ As-Salam Timika",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Assalam Timika.png"
+  },
+  {
+    "name": "Sukoharjo Peduli",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Sukoharjo.png"
+  },
+  {
+    "name": "LAZ AZKA Al Baitul Amien Jember",
+    "scale": "Kab/Kota",
+    "logo": "LAZ AZKA Al Baitul Amien Jember.png"
+  },
+  {
+    "name": "Baitulmaal Munzalan Indonesia",
+    "scale": "Nasional",
+    "logo": "Baitulmaal Munzalan Indonesia.png"
+  },
+  {
+    "name": "Al-Qoyyim Sukoharjo",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Al-Qoyyim Sukoharjo.png.jpeg"
+  },
+  {
+    "name": "Berdaya Foundation",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Indonesia Berdaya Kreatif.png"
+  },
+  {
+    "name": "LAZ DAPA",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Dompet Amal Pecinta Al Qur'an.png"
+  },
+  {
+    "name": "Yayasan Hadji Kalla",
+    "scale": "Nasional",
+    "logo": "Yayasan Hadji Kalla.png"
+  },
+  {
+    "name": "LAZ Musa'adatul Ummah",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Musa'adatul Ummah.png"
+  },
+  {
+    "name": "LAZIS UNISIA",
+    "scale": "Provinsi",
+    "logo": "LAZIS UNISIA.png"
+  },
+  {
+    "name": "LAZ BMBU Kota Bontang",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Baitul Maal Barakatul Ummah Kota Bontang.png"
+  },
+  {
+    "name": "LAZ Rumah Peduli Umat",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Rumah Peduli Umat.png"
+  },
+  {
+    "name": "LAZ Sahabat Kebaikan Umat (SAKU)",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Sahabat Kebaikan Umat (SAKU).png"
+  },
+  {
+    "name": "Insan Peduli Umat (IPU)",
+    "scale": "Kab/Kota",
+    "logo": "Insan Peduli Umat (IPU).png"
+  },
+  {
+    "name": "Yayasan Gugus Karya Mandiri",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Gugus Karya Mandiri.png"
+  },
+  {
+    "name": "Baitul Maal Merapi Merbabu (BM3)",
+    "scale": "Nasional",
+    "logo": "Yayasan Baitul Maal Merapi Merbabu.png"
+  },
+  {
+    "name": "Sahabat Yatim Indonesia",
+    "scale": "Nasional",
+    "logo": "sahabat yatim.webp"
+  },
+  {
+    "name": "LAZ Madani Human Care (MHC) Dumai",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Madani Human Care (MHC) Dumai.png"
+  },
+  {
+    "name": "LAZ Persada Jatim Indonesia",
+    "scale": "Provinsi",
+    "logo": "LAZ Persada.png"
+  },
+  {
+    "name": "LAZIS Baiturrahman",
+    "scale": "Kab/Kota",
+    "logo": "LAZIS Baiturrahman.png"
+  },
+  {
+    "name": "Nusa Charity",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Nusa Charity.png"
+  },
+  {
+    "name": "ZIS Yayasan Annur Insan Pembangkitan (YANIP)",
+    "scale": "Nasional",
+    "logo": "yanip.png"
+  },
+  {
+    "name": "Darul Akrim Inayah",
+    "scale": "Kab/Kota",
+    "logo": "Darul Akrim Inayah.png"
+  },
+  {
+    "name": "LAZ Masjid Raya Bintaro (LAZ MRBJ)",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Masjid Raya Bintaro (LAZ MRBJ).png"
+  },
+  {
+    "name": "LAZ Zakatku Bakti Persada",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Zakatku Bakti Persada.png"
+  },
+  {
+    "name": "Yayasan Rute Langkah Amanah",
+    "scale": "Kab/Kota",
+    "logo": "rute langkah amanah.png"
+  },
+  {
+    "name": "LAZ Risalah Charity",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Risalah Charity.png"
+  },
+  {
+    "name": "LAZ Tamasa",
+    "scale": "Provinsi",
+    "logo": "LAZ Tabungan Amal Saleh (LAZ Tamasa).png"
+  },
+  {
+    "name": "LAZ BKB",
+    "scale": "Provinsi",
+    "logo": "LAZ Bangun Kecerdasan Bangsa (LAZ BKB).png"
+  },
+  {
+    "name": "T.CARE",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Tunasmuda Care (T.CARE).png"
+  },
+  {
+    "name": "Baitul Maal Al Furqon",
+    "scale": "Kab/Kota",
+    "logo": "Baitul Maal Al Furqon.png"
+  },
+  {
+    "name": "Explore! Humanity",
+    "scale": "Kab/Kota",
+    "logo": "Explore! Humanity.png"
+  },
+  {
+    "name": "Laju Peduli",
+    "scale": "Kab/Kota",
+    "logo": "Laju Peduli.png"
+  },
+  {
+    "name": "LAZ Balqis Peduli",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Balqis Peduli.png"
+  },
+  {
+    "name": "LAZ MKU",
+    "scale": "Nasional",
+    "logo": "LAZ Membangun Keluarga Utama (LAZ MKU).png"
+  },
+  {
+    "name": "Cahaya Islam Mutiara Imani",
+    "scale": "Kab/Kota",
+    "logo": "Cahaya Islam Mutiara Imani (CIMI).png"
+  },
+  {
+    "name": "LAZ ZISWAF Masjid Pelajar",
+    "scale": "Kab/Kota",
+    "logo": "ZISWAF Masjid Pelajar (ZISWAP).png"
+  },
+  {
+    "name": "Saku Yatim",
+    "scale": "Kab/Kota",
+    "logo": "Yayasan Rumah Perubahan Indonesia (Saku Yatim).png"
+  },
+  {
+    "name": "LAZ OPSEZI",
+    "scale": "Kab/Kota",
+    "logo": "Optimalisasi Sedekah Zakat dan Infak (LAZ OPSEZI).png"
+  },
+  {
+    "name": "Inovasi Zakat Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "inovazi.png"
+  },
+  {
+    "name": "Nusantara Palestina Center",
+    "scale": "Provinsi",
+    "logo": "Nusantara Palestina Center.png"
+  },
+  {
+    "name": "LAZ Kesejahteraan Umat",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Kesejahteraan Umat.png"
+  },
+  {
+    "name": "ROJA Peduli",
+    "scale": "Kab/Kota",
+    "logo": "Roja Peduli.jpeg"
+  },
+  {
+    "name": "Indonesia Berbagi Peduli",
+    "scale": "Kab/Kota",
+    "logo": "Indonesia berbagi-peduli.webp"
+  },
+  {
+    "name": "LAZ Al-Aqsha De Latinos",
+    "scale": "Kab/Kota",
+    "logo": "LAZ AL AQSHO DELATINOS.png"
+  },
+  {
+    "name": "Percikan Iman",
+    "scale": "Kab/Kota",
+    "logo": "SEDEKAHKU PERCIKAN IMAN (2) (1).png"
+  },
+  {
+    "name": "Pusat Amal Kebajikan",
+    "scale": "Kab/Kota",
+    "logo": "Pusat Amal Kebajikan.jpeg"
+  },
+  {
+    "name": "LAZNAS AQL",
+    "scale": "Nasional",
+    "logo": "LAZ AQL.png"
+  },
+  {
+    "name": "LAZ Assyifa Peduli",
+    "scale": "Kab/Kota",
+    "logo": "LAZ ASSYIFA PEDULI.png"
+  },
+  {
+    "name": "LAZ Generasi Rabbani",
+    "scale": "Kab/Kota",
+    "logo": "rabbaniyyin care.png"
+  },
+  {
+    "name": "LAZ Abulyatama Indonesia",
+    "scale": "Nasional",
+    "logo": "LAZ NAS Abulyatama.png"
+  },
+  {
+    "name": "Indonesia Beramal Sholeh (IBS)",
+    "scale": "Provinsi",
+    "logo": "Indonesia Beramal Sholeh.png"
+  },
+  {
+    "name": "MIM Foundation",
+    "scale": "Kab/Kota",
+    "logo": "mim foundation.webp"
+  },
+  {
+    "name": "Asar Humanity",
+    "scale": "Nasional",
+    "logo": "ASAR HUMANITY.png"
+  },
+  {
+    "name": "Griya Zakat",
+    "scale": "Kab/Kota",
+    "logo": "Griya Zakat.jpeg"
+  },
+  {
+    "name": "Griya Yatim dan Dhuafa (GYD)",
+    "scale": "Nasional",
+    "logo": "Rumah Yatim.png"
+  },
+  {
+    "name": "LAZ Al-Bahjah",
+    "scale": "Kab/Kota",
+    "logo": "LAZ AL-BAHJAH.png"
+  },
+  {
+    "name": "LAZ ASPHEN",
+    "scale": "Kab/Kota",
+    "logo": "LAZ ASPHEN.png"
+  },
+  {
+    "name": "LAZ Sahabat Almira Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "Sahabat Almira Indonesia.png"
+  },
+  {
+    "name": "LAZ Salam Setara",
+    "scale": "Nasional",
+    "logo": "LAZ Salam Setara.png"
+  },
+  {
+    "name": "LAZIS Sabilillah",
+    "scale": "Kab/Kota",
+    "logo": "LAZIS Sabilillah Malang.png"
+  },
+  {
+    "name": "LAZ Pundi Surga",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Pundi Surga.png"
+  },
+  {
+    "name": "LAZ DARUL HIKAM",
+    "scale": "Provinsi",
+    "logo": "laz daarul hikam.png"
+  },
+  {
+    "name": "ALZIS Alwashliyah",
+    "scale": "Nasional",
+    "logo": "Logo Alzis Alwashliyah.jpeg"
+  },
+  {
+    "name": "LAZNAS MPAQ",
+    "scale": "Nasional",
+    "logo": "LAZNAS MPAQ.png"
+  },
+  {
+    "name": "LAZIS Agnia Care",
+    "scale": "Nasional",
+    "logo": "LAZNAS Agnia Care.png"
+  },
+  {
+    "name": "LAZ Hidayah Berbagi Indonesia",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Hidayah Berbagi Indonesia.jpeg"
+  },
+  {
+    "name": "LAZ Nur Hidayah",
+    "scale": "Kab/Kota",
+    "logo": "laz nur hidayah.png"
+  },
+  {
+    "name": "Lazis Cahaya Peduli",
+    "scale": "Kab/Kota",
+    "logo": "LAZIS Cahaya Peduli.jpg"
+  },
+  {
+    "name": "LAZ SEMBADA",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Sembada.png"
+  },
+  {
+    "name": "LAZ Islamic Relief Indonesia",
+    "scale": "Nasional",
+    "logo": "islamic relief.png"
+  },
+  {
+    "name": "Baitul Maal Timoho Sejahtera",
+    "scale": "Kab/Kota",
+    "logo": "baitul maal Timoho.png"
+  },
+  {
+    "name": "LAZ SYAMSUL ULUM",
+    "scale": "Provinsi",
+    "logo": "lazis syamsul ulum.png"
+  },
+  {
+    "name": "LAZ BM AL-ITQON",
+    "scale": "Kab/Kota",
+    "logo": "logo BM AL ITQON.png"
+  },
+  {
+    "name": "LAZ Swara Mandiri Ummat",
+    "scale": "Kab/Kota",
+    "logo": "LAZ Swara Mandiri Ummat.png"
+  }
+]
