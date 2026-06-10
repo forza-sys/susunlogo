@@ -22,6 +22,7 @@ function App() {
   const [inputText, setInputText] = useState(initialState?.t || '');
   const [numCols, setNumCols] = useState(initialState?.c || 5);
   const [showOpzList, setShowOpzList] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   
   // Load initial scale from URL, then localStorage, or default to empty object
   const [itemScales, setItemScales] = useState(() => {
@@ -164,19 +165,33 @@ function App() {
                 {showOpzList ? 'Sembunyikan Daftar Nama OPZ' : 'Lihat Daftar Nama OPZ yang Tersedia'}
               </button>
               {showOpzList && (
-                <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', gap: '6px', maxHeight: '250px', overflowY: 'auto', border: '1px solid var(--border-color)', padding: '12px', borderRadius: '6px', backgroundColor: '#f8fafc' }}>
-                  {opzData.map((opz, idx) => (
-                    <span 
-                      key={idx} 
-                      onClick={() => addOpzToInput(opz.name)}
-                      style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '20px', fontSize: '0.8rem', cursor: 'pointer', border: '1px solid #cbd5e1', color: 'var(--text-main)', transition: 'all 0.2s', userSelect: 'none' }}
-                      title="Klik untuk menambahkan ke daftar"
-                      onMouseEnter={(e) => { e.target.style.backgroundColor = '#e0e7ff'; e.target.style.borderColor = 'var(--primary-color)' }}
-                      onMouseLeave={(e) => { e.target.style.backgroundColor = '#ffffff'; e.target.style.borderColor = '#cbd5e1' }}
-                    >
-                      {opz.name}
-                    </span>
-                  ))}
+                <div style={{ marginTop: '10px', border: '1px solid var(--border-color)', padding: '12px', borderRadius: '6px', backgroundColor: '#f8fafc' }}>
+                  <input 
+                    type="text" 
+                    placeholder="🔍 Cari nama OPZ..." 
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{ width: '100%', padding: '8px 12px', marginBottom: '12px', borderRadius: '4px', border: '1px solid #cbd5e1', boxSizing: 'border-box', fontSize: '0.9rem' }}
+                  />
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', maxHeight: '250px', overflowY: 'auto' }}>
+                    {opzData
+                      .filter(opz => opz.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                      .map((opz, idx) => (
+                      <span 
+                        key={idx} 
+                        onClick={() => addOpzToInput(opz.name)}
+                        style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '20px', fontSize: '0.8rem', cursor: 'pointer', border: '1px solid #cbd5e1', color: 'var(--text-main)', transition: 'all 0.2s', userSelect: 'none' }}
+                        title="Klik untuk menambahkan ke daftar"
+                        onMouseEnter={(e) => { e.target.style.backgroundColor = '#e0e7ff'; e.target.style.borderColor = 'var(--primary-color)' }}
+                        onMouseLeave={(e) => { e.target.style.backgroundColor = '#ffffff'; e.target.style.borderColor = '#cbd5e1' }}
+                      >
+                        {opz.name}
+                      </span>
+                    ))}
+                    {opzData.filter(opz => opz.name.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
+                      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontStyle: 'italic', margin: 0 }}>OPZ tidak ditemukan.</p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
