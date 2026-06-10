@@ -1,12 +1,12 @@
 :root {
-  --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
-  --bg-color: #f8fafc;
+  --primary-color: #a3e635; /* Lime green */
+  --primary-hover: #bef264;
+  --bg-color: #f3f4f6; /* light grey */
   --card-bg: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --border-color: #e2e8f0;
-  --accent: #2563eb;
+  --text-main: #111827; /* dark grey/black */
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --accent: #111827; /* Black for buttons */
 }
 
 * {
@@ -35,9 +35,7 @@ body {
 .app-header h1 {
   font-size: 3.5rem;
   margin: 0;
-  background: linear-gradient(135deg, #2563eb, #4f46e5, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-main);
   font-weight: 800;
   letter-spacing: -1.5px;
 }
@@ -52,15 +50,14 @@ body {
   background: var(--card-bg);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   margin-bottom: 40px;
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .controls-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
 }
 
 .form-group {
@@ -80,7 +77,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-textarea, input[type="number"] {
+textarea, input[type="number"], input[type="text"] {
   width: 100%;
   padding: 15px;
   border-radius: 8px;
@@ -92,10 +89,10 @@ textarea, input[type="number"] {
   transition: all 0.2s ease;
 }
 
-textarea:focus, input[type="number"]:focus {
+textarea:focus, input[type="number"]:focus, input[type="text"]:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  border-color: var(--text-main);
+  box-shadow: 0 0 0 3px var(--primary-color);
 }
 
 textarea {
@@ -107,7 +104,7 @@ textarea {
   background: var(--card-bg);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border-color);
   animation: fadeIn 0.5s ease;
 }
@@ -120,10 +117,10 @@ textarea {
 .stats {
   text-align: center;
   font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--accent);
+  font-weight: 700;
+  color: var(--text-main);
   margin-bottom: 20px;
-  background: rgba(37, 99, 235, 0.05);
+  background: var(--primary-color);
   padding: 10px;
   border-radius: 8px;
   display: inline-block;
@@ -137,22 +134,19 @@ textarea {
   justify-content: center;
   align-items: center;
   
-  /* Tingginya menyesuaikan lebar dengan rasio landscape */
   height: auto;
   aspect-ratio: 4 / 3; 
 
-  /* Menghilangkan garis pembatas antar logo */
   outline: none;
-  
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   position: relative;
 }
 
 .logo-item:hover {
-  z-index: 10; /* Bring hovered item to front for the shadow */
-  box-shadow: 0 12px 20px -8px rgba(79, 70, 229, 0.2);
-  outline-color: #a5b4fc;
+  z-index: 10;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  outline: 1px solid var(--text-main);
 }
 
 .logo-item img {
@@ -164,7 +158,7 @@ textarea {
 .zoom-controls {
   position: absolute;
   bottom: 5px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   padding: 4px 10px;
   border-radius: 20px;
   display: flex;
@@ -173,7 +167,7 @@ textarea {
   opacity: 0;
   transition: opacity 0.2s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
 }
 
 .logo-item:hover .zoom-controls {
@@ -185,14 +179,14 @@ textarea {
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
-  color: var(--primary-color);
+  color: var(--text-main);
   font-weight: bold;
   padding: 0 5px;
   line-height: 1;
 }
 
 .zoom-controls button:hover {
-  color: var(--primary-hover);
+  color: var(--primary-color);
   transform: scale(1.2);
 }
 
@@ -207,11 +201,10 @@ textarea {
   background: #ffffff;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .export-btn {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: var(--text-main);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -219,7 +212,6 @@ textarea {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
   transition: all 0.2s;
   display: flex;
   align-items: center;
@@ -228,7 +220,8 @@ textarea {
 
 .export-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+  background: #374151;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .missing-logos {
@@ -241,15 +234,16 @@ textarea {
 }
 
 .missing-badge {
-  background: #fee2e2;
-  color: #dc2626;
+  background: var(--primary-color);
+  color: var(--text-main);
+  font-weight: 600;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.9rem;
-  border: 1px solid #fecaca;
+  border: 1px solid #84cc16;
   transition: all 0.2s;
 }
 
 .missing-badge:hover {
-  background: #fecaca;
+  background: var(--primary-hover);
 }

@@ -160,7 +160,7 @@ function App() {
               <button 
                 type="button" 
                 onClick={() => setShowOpzList(!showOpzList)} 
-                style={{ background: 'transparent', color: 'var(--primary-color)', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: 0, fontSize: '0.9rem', fontWeight: '600' }}
+                style={{ background: 'transparent', color: 'var(--text-main)', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: 0, fontSize: '0.9rem', fontWeight: '700' }}
               >
                 {showOpzList ? 'Sembunyikan Daftar Nama OPZ' : 'Lihat Daftar Nama OPZ yang Tersedia'}
               </button>
@@ -199,7 +199,7 @@ function App() {
                         onClick={() => addOpzToInput(opz.name)}
                         style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '20px', fontSize: '0.8rem', cursor: 'pointer', border: '1px solid #cbd5e1', color: 'var(--text-main)', transition: 'all 0.2s', userSelect: 'none' }}
                         title="Klik untuk menambahkan ke daftar"
-                        onMouseEnter={(e) => { e.target.style.backgroundColor = '#e0e7ff'; e.target.style.borderColor = 'var(--primary-color)' }}
+                        onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--primary-color)'; e.target.style.borderColor = 'var(--text-main)' }}
                         onMouseLeave={(e) => { e.target.style.backgroundColor = '#ffffff'; e.target.style.borderColor = '#cbd5e1' }}
                       >
                         {opz.name}
@@ -226,7 +226,7 @@ function App() {
                 style={{ height: '54px', boxSizing: 'border-box' }}
               />
             </div>
-            <button className="export-btn" onClick={copyShareLink} style={{ background: '#10b981', height: '54px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <button className="export-btn" onClick={copyShareLink} style={{ height: '54px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               🔗 Copy Link untuk Teman
             </button>
           </div>
