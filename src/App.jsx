@@ -156,7 +156,7 @@ function App() {
               placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
               rows={5}
             />
-            <div style={{ marginTop: '10px' }}>
+            <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <button 
                 type="button" 
                 onClick={() => setShowOpzList(!showOpzList)} 
@@ -164,6 +164,23 @@ function App() {
               >
                 {showOpzList ? 'Sembunyikan Daftar Nama OPZ' : 'Lihat Daftar Nama OPZ yang Tersedia'}
               </button>
+              
+              {inputText.trim().length > 0 && (
+                <button 
+                  type="button" 
+                  onClick={() => {
+                    if (window.confirm("Yakin ingin mereset/menghapus semua nama OPZ di dalam kotak?")) {
+                      setInputText('');
+                    }
+                  }} 
+                  style={{ background: 'transparent', color: '#ef4444', border: 'none', cursor: 'pointer', padding: 0, fontSize: '0.9rem', fontWeight: '600' }}
+                  title="Hapus semua daftar"
+                >
+                  🗑️ Reset
+                </button>
+              )}
+            </div>
+            <div>
               {showOpzList && (
                 <div style={{ marginTop: '10px', border: '1px solid var(--border-color)', padding: '12px', borderRadius: '6px', backgroundColor: '#f8fafc' }}>
                   <input 
