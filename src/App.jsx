@@ -128,7 +128,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>Logo Arranger</h1>
+        <h1>Susun Logo</h1>
         <p>Susun logo OPZ dengan mudah</p>
       </header>
 
