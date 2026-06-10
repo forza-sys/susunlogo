@@ -21,6 +21,7 @@ function App() {
 
   const [inputText, setInputText] = useState(initialState?.t || '');
   const [numCols, setNumCols] = useState(initialState?.c || 5);
+  const [showOpzList, setShowOpzList] = useState(false);
   
   // Load initial scale from URL, then localStorage, or default to empty object
   const [itemScales, setItemScales] = useState(() => {
@@ -54,6 +55,17 @@ function App() {
       // Ignore encoding errors if text is too weird
     }
   }, [inputText, numCols, itemScales]);
+
+  const addOpzToInput = (name) => {
+    const current = inputText.trim();
+    if (current) {
+      if (!current.includes(name)) {
+        setInputText(current + ",\n" + name);
+      }
+    } else {
+      setInputText(name);
+    }
+  };
 
   const copyShareLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -143,6 +155,31 @@ function App() {
               placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
               rows={5}
             />
+            <div style={{ marginTop: '10px' }}>
+              <button 
+                type="button" 
+                onClick={() => setShowOpzList(!showOpzList)} 
+                style={{ background: 'transparent', color: 'var(--primary-color)', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: 0, fontSize: '0.9rem', fontWeight: '600' }}
+              >
+                {showOpzList ? 'Sembunyikan Daftar Nama OPZ' : 'Lihat Daftar Nama OPZ yang Tersedia'}
+              </button>
+              {showOpzList && (
+                <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', gap: '6px', maxHeight: '250px', overflowY: 'auto', border: '1px solid var(--border-color)', padding: '12px', borderRadius: '6px', backgroundColor: '#f8fafc' }}>
+                  {opzData.map((opz, idx) => (
+                    <span 
+                      key={idx} 
+                      onClick={() => addOpzToInput(opz.name)}
+                      style={{ background: '#ffffff', padding: '6px 10px', borderRadius: '20px', fontSize: '0.8rem', cursor: 'pointer', border: '1px solid #cbd5e1', color: 'var(--text-main)', transition: 'all 0.2s', userSelect: 'none' }}
+                      title="Klik untuk menambahkan ke daftar"
+                      onMouseEnter={(e) => { e.target.style.backgroundColor = '#e0e7ff'; e.target.style.borderColor = 'var(--primary-color)' }}
+                      onMouseLeave={(e) => { e.target.style.backgroundColor = '#ffffff'; e.target.style.borderColor = '#cbd5e1' }}
+                    >
+                      {opz.name}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-end' }}>
