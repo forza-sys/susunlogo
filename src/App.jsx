@@ -160,9 +160,9 @@ function App() {
               <button 
                 type="button" 
                 onClick={() => setShowOpzList(!showOpzList)} 
-                style={{ background: 'transparent', color: 'var(--text-main)', border: 'none', cursor: 'pointer', textDecoration: 'underline', padding: 0, fontSize: '0.9rem', fontWeight: '700' }}
+                style={{ background: showOpzList ? 'var(--text-main)' : 'var(--primary-color)', color: showOpzList ? '#ffffff' : 'var(--text-main)', border: '1px solid var(--text-main)', borderRadius: '20px', cursor: 'pointer', padding: '6px 14px', fontSize: '0.85rem', fontWeight: '600', transition: 'all 0.2s' }}
               >
-                {showOpzList ? 'Sembunyikan Daftar Nama OPZ' : 'Lihat Daftar Nama OPZ yang Tersedia'}
+                {showOpzList ? 'Sembunyikan daftar OPZ' : 'Lihat daftar OPZ'}
               </button>
               
               {inputText.trim().length > 0 && (
@@ -173,10 +173,12 @@ function App() {
                       setInputText('');
                     }
                   }} 
-                  style={{ background: 'transparent', color: '#ef4444', border: 'none', cursor: 'pointer', padding: 0, fontSize: '0.9rem', fontWeight: '600' }}
+                  style={{ background: 'transparent', color: 'var(--text-main)', border: '1px solid var(--text-main)', borderRadius: '20px', cursor: 'pointer', padding: '6px 14px', fontSize: '0.85rem', fontWeight: '600', transition: 'all 0.2s' }}
                   title="Hapus semua daftar"
+                  onMouseEnter={(e) => { e.target.style.backgroundColor = 'var(--text-main)'; e.target.style.color = '#ffffff' }}
+                  onMouseLeave={(e) => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-main)' }}
                 >
-                  🗑️ Reset
+                  Reset daftar
                 </button>
               )}
             </div>
@@ -185,7 +187,7 @@ function App() {
                 <div style={{ marginTop: '10px', border: '1px solid var(--border-color)', padding: '12px', borderRadius: '6px', backgroundColor: '#f8fafc' }}>
                   <input 
                     type="text" 
-                    placeholder="🔍 Cari nama OPZ..." 
+                    placeholder="Cari nama OPZ..." 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     style={{ width: '100%', padding: '8px 12px', marginBottom: '12px', borderRadius: '4px', border: '1px solid #cbd5e1', boxSizing: 'border-box', fontSize: '0.9rem' }}
@@ -227,7 +229,7 @@ function App() {
               />
             </div>
             <button className="export-btn" onClick={copyShareLink} style={{ height: '54px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              🔗 Copy Link untuk Teman
+              Copy link ↗
             </button>
           </div>
         </div>
@@ -240,7 +242,7 @@ function App() {
             
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
               <button className="export-btn" onClick={handleExport}>
-                📸 Export to PNG (High Res)
+                Export to PNG ↗
               </button>
             </div>
 
@@ -281,7 +283,7 @@ function App() {
               <div className="missing-logos">
                 <p style={{width: '100%', color: '#fca5a5', fontSize: '0.9rem', marginBottom: '10px'}}>Tidak ditemukan:</p>
                 {matchedLogos.filter(item => !item.found).map((item, idx) => (
-                  <span key={idx} className="missing-badge">❌ {item.queryName}</span>
+                  <span key={idx} className="missing-badge">{item.queryName}</span>
                 ))}
               </div>
             )}
