@@ -142,7 +142,7 @@ function App() {
     <div className="app-container">
       <header className="app-header">
         <h1>Susun Logo</h1>
-        <p>Susun logo OPZ dengan mudah</p>
+        <p>selamatkan waktumu untuk ngerjain yg lain</p>
       </header>
 
       <main className="app-content">
