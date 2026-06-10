@@ -206,9 +206,10 @@ function App() {
                 value={numCols}
                 onChange={(e) => setNumCols(Math.max(1, parseInt(e.target.value) || 1))}
                 min={1}
+                style={{ height: '54px', boxSizing: 'border-box' }}
               />
             </div>
-            <button className="export-btn" onClick={copyShareLink} style={{ background: '#10b981' }}>
+            <button className="export-btn" onClick={copyShareLink} style={{ background: '#10b981', height: '54px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               🔗 Copy Link untuk Teman
             </button>
           </div>
