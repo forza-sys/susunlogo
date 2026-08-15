@@ -259,7 +259,7 @@ function App() {
                       }}
                     >
                       <img 
-                        src={`/logos/${item.logoData.logo}`} 
+                        src={`./logos/${item.logoData.logo}`} 
                         alt={item.logoData.name} 
                         title={item.logoData.name}
                         style={{ 
