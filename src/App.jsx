@@ -117,11 +117,18 @@ function App() {
 
   const validLogos = matchedLogos.filter(item => item.found);
 
+  // Helper to extract ID from full drive link or bare ID
+  const extractFileId = (rawId) => {
+    if (!rawId) return null;
+    const match = rawId.match(/\/d\/([a-zA-Z0-9_-]+)/) || rawId.match(/id=([a-zA-Z0-9_-]+)/);
+    return match ? match[1] : rawId;
+  };
+
   // Lazy-load base64 images from GAS when logos enter the canvas
   useEffect(() => {
     validLogos.forEach(async (item) => {
       const name = item.logoData.name;
-      const fileId = item.logoData.id; // From Google Sheets Drive File ID
+      const fileId = extractFileId(item.logoData.id); // Safe extraction
       
       if (!logoImages[name] && fileId) {
         // Mark as loading to prevent duplicate requests
@@ -315,11 +322,12 @@ function App() {
                 {validLogos.map((item, idx) => {
                   const currentScale = itemScales[item.logoData.name] || 1;
                   const imageState = logoImages[item.logoData.name];
+                  const fileId = extractFileId(item.logoData.id);
                   
                   // Use base64 if ready, otherwise fallback to preview or loading state
                   const imgSrc = (imageState && imageState !== 'loading') 
                     ? imageState 
-                    : `https://drive.google.com/uc?export=view&id=${item.logoData.id}`;
+                    : `https://drive.google.com/uc?export=view&id=${fileId}`;
 
                   return (
                     <div 
