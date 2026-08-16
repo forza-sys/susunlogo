@@ -295,6 +295,23 @@ function App() {
             <button className="export-btn" onClick={copyShareLink} style={{ height: '54px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               Copy link ↗
             </button>
+            {matchedLogos.length > 0 && (
+              <button 
+                className="export-btn" 
+                onClick={handleExport}
+                style={{ 
+                  height: '54px', 
+                  boxSizing: 'border-box', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  opacity: isExportReady ? 1 : 0.6, 
+                  cursor: isExportReady ? 'pointer' : 'not-allowed' 
+                }}
+              >
+                {isExportReady ? 'Export to PNG ↗' : 'Loading Images... ⌛'}
+              </button>
+            )}
           </div>
         </div>
 
@@ -302,19 +319,6 @@ function App() {
           <div className="results-section">
             <div className="stats">
               Ditemukan {validLogos.length} dari {matchedLogos.length} nama OPZ.
-            </div>
-            
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
-              <button 
-                className="export-btn" 
-                onClick={handleExport}
-                style={{ 
-                  opacity: isExportReady ? 1 : 0.6, 
-                  cursor: isExportReady ? 'pointer' : 'not-allowed' 
-                }}
-              >
-                {isExportReady ? 'Export to PNG ↗' : 'Loading Images... ⌛'}
-              </button>
             </div>
 
             <div className="logo-grid-container" style={{ overflowX: 'auto' }}>
