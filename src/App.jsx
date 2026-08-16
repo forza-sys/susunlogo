@@ -1,10 +1,8 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import './App.css';
-import opzData from './data.json';
 
 function App() {
-  // Read initial state from URL hash if available (for sharing)
   const getInitialState = () => {
     try {
       const hash = window.location.hash.replace('#', '');
@@ -24,6 +22,10 @@ function App() {
   const [showOpzList, setShowOpzList] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
+  const [opzData, setOpzData] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [logoImages, setLogoImages] = useState({}); // { name: base64 | 'loading' }
+
   // Load initial scale from URL, then localStorage, or default to empty object
   const [itemScales, setItemScales] = useState(() => {
     if (initialState?.s) return initialState.s;
@@ -37,12 +39,10 @@ function App() {
 
   const exportRef = useRef(null);
 
-  // Save scale to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('logo-arranger-scales', JSON.stringify(itemScales));
   }, [itemScales]);
 
-  // Sync state to URL hash so it can be shared with friends
   useEffect(() => {
     const state = {
       t: inputText,
@@ -56,6 +56,29 @@ function App() {
       // Ignore encoding errors if text is too weird
     }
   }, [inputText, numCols, itemScales]);
+
+  // Fetch initial OPZ List from GAS
+  useEffect(() => {
+    const fetchList = async () => {
+      try {
+        const gasUrl = import.meta.env.VITE_GAS_API_URL;
+        if (!gasUrl) {
+          console.error("VITE_GAS_API_URL is missing in .env");
+          setIsDataLoading(false);
+          return;
+        }
+        const response = await fetch(`${gasUrl}?action=list`);
+        const data = await response.json();
+        // Assuming data is array of {name, id}
+        setOpzData(data);
+      } catch (err) {
+        console.error('Failed to fetch opz list', err);
+      } finally {
+        setIsDataLoading(false);
+      }
+    };
+    fetchList();
+  }, []);
 
   const addOpzToInput = (name) => {
     const current = inputText.trim();
@@ -73,15 +96,12 @@ function App() {
     alert("Link berhasil di-copy! Silakan kirim link ini ke teman Anda agar mereka melihat susunan & ukuran yang sama persis.");
   };
 
-  // Parse input and match logos
   const matchedLogos = useMemo(() => {
     if (!inputText.trim()) return [];
     
-    // Split by comma or newline
     const names = inputText.split(/[,\n]+/).map(n => n.trim()).filter(n => n.length > 0);
     
     const logos = names.map(name => {
-      // Find matching OPZ (case insensitive, partial match or exact match)
       const match = opzData.find(opz => opz.name.toLowerCase() === name.toLowerCase()) 
         || opzData.find(opz => opz.name.toLowerCase().includes(name.toLowerCase()));
       
@@ -93,20 +113,47 @@ function App() {
     });
 
     return logos;
-  }, [inputText]);
+  }, [inputText, opzData]);
 
   const validLogos = matchedLogos.filter(item => item.found);
 
-  // Calculate CSS flex properties to allow bottom row centering
+  // Lazy-load base64 images from GAS when logos enter the canvas
+  useEffect(() => {
+    validLogos.forEach(async (item) => {
+      const name = item.logoData.name;
+      const fileId = item.logoData.id; // From Google Sheets Drive File ID
+      
+      if (!logoImages[name] && fileId) {
+        // Mark as loading to prevent duplicate requests
+        setLogoImages(prev => ({ ...prev, [name]: 'loading' }));
+        
+        try {
+          const gasUrl = import.meta.env.VITE_GAS_API_URL;
+          const res = await fetch(`${gasUrl}?action=getImage&id=${fileId}`);
+          const json = await res.json();
+          if (json.base64) {
+            setLogoImages(prev => ({ ...prev, [name]: json.base64 }));
+          } else {
+            console.error("Error fetching image:", json.error);
+            setLogoImages(prev => ({ ...prev, [name]: null }));
+          }
+        } catch (e) {
+          console.error("Fetch failed:", e);
+          setLogoImages(prev => ({ ...prev, [name]: null }));
+        }
+      }
+    });
+  }, [validLogos, logoImages]);
+
   const gridStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '0', // "saling nempel aka, ga ada jarak"
+    gap: '0',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff', // "belakangnya putih"
+    backgroundColor: '#ffffff',
     padding: '20px',
-    minWidth: `${numCols * 100}px` // Memastikan tiap logo minimal punya lebar 100px
+    minWidth: `${numCols * 100}px`
   };
 
   const updateScale = (name, delta) => {
@@ -117,12 +164,21 @@ function App() {
     });
   };
 
+  const isExportReady = validLogos.every(item => {
+    const state = logoImages[item.logoData.name];
+    return state && state !== 'loading';
+  });
+
   const handleExport = async () => {
     if (!exportRef.current) return;
+    if (!isExportReady) {
+      alert("Tunggu sebentar, gambar masih di-loading dari Google Drive...");
+      return;
+    }
     
     try {
       const canvas = await html2canvas(exportRef.current, {
-        scale: 3, // High resolution
+        scale: 3,
         backgroundColor: '#ffffff',
         useCORS: true
       });
@@ -161,8 +217,9 @@ function App() {
                 type="button" 
                 onClick={() => setShowOpzList(!showOpzList)} 
                 style={{ background: showOpzList ? 'var(--text-main)' : 'var(--primary-color)', color: showOpzList ? '#ffffff' : 'var(--text-main)', border: '1px solid var(--text-main)', borderRadius: '20px', cursor: 'pointer', padding: '6px 14px', fontSize: '0.85rem', fontWeight: '600', transition: 'all 0.2s' }}
+                disabled={isDataLoading}
               >
-                {showOpzList ? 'Sembunyikan daftar OPZ' : 'Lihat daftar OPZ'}
+                {isDataLoading ? 'Memuat Database...' : (showOpzList ? 'Sembunyikan daftar OPZ' : 'Lihat daftar OPZ')}
               </button>
               
               {inputText.trim().length > 0 && (
@@ -241,8 +298,15 @@ function App() {
             </div>
             
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
-              <button className="export-btn" onClick={handleExport}>
-                Export to PNG ↗
+              <button 
+                className="export-btn" 
+                onClick={handleExport}
+                style={{ 
+                  opacity: isExportReady ? 1 : 0.6, 
+                  cursor: isExportReady ? 'pointer' : 'not-allowed' 
+                }}
+              >
+                {isExportReady ? 'Export to PNG ↗' : 'Loading Images... ⌛'}
               </button>
             </div>
 
@@ -250,21 +314,29 @@ function App() {
               <div ref={exportRef} style={gridStyle}>
                 {validLogos.map((item, idx) => {
                   const currentScale = itemScales[item.logoData.name] || 1;
+                  const imageState = logoImages[item.logoData.name];
+                  
+                  // Use base64 if ready, otherwise fallback to preview or loading state
+                  const imgSrc = (imageState && imageState !== 'loading') 
+                    ? imageState 
+                    : `https://drive.google.com/uc?export=view&id=${item.logoData.id}`;
+
                   return (
                     <div 
                       key={idx} 
                       className="logo-item"
                       style={{
-                        width: `calc(100% / ${numCols})`
+                        width: `calc(100% / ${numCols})`,
+                        opacity: imageState === 'loading' ? 0.5 : 1
                       }}
                     >
                       <img 
-                        src={`./logos/${item.logoData.logo}`} 
+                        src={imgSrc} 
                         alt={item.logoData.name} 
                         title={item.logoData.name}
                         style={{ 
                           transform: `scale(${currentScale})`,
-                          transition: 'transform 0.2s ease',
+                          transition: 'transform 0.2s ease, opacity 0.2s',
                           transformOrigin: 'center'
                         }}
                       />
