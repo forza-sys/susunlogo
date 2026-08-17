@@ -326,32 +326,33 @@ function App() {
                 {validLogos.map((item, idx) => {
                   const currentScale = itemScales[item.logoData.name] || 1;
                   const imageState = logoImages[item.logoData.name];
-                  const fileId = extractFileId(item.logoData.id);
                   
-                  // Use base64 if ready, otherwise fallback to preview or loading state
-                  const imgSrc = (imageState && imageState !== 'loading') 
-                    ? imageState 
-                    : `https://drive.google.com/uc?export=view&id=${fileId}`;
+                  // If image is still loading or not started fetching yet
+                  const isImageReady = imageState && imageState !== 'loading';
 
                   return (
                     <div 
                       key={idx} 
                       className="logo-item"
                       style={{
-                        width: `calc(100% / ${numCols})`,
-                        opacity: imageState === 'loading' ? 0.5 : 1
+                        width: `calc(100% / ${numCols})`
                       }}
                     >
-                      <img 
-                        src={imgSrc} 
-                        alt={item.logoData.name} 
-                        title={item.logoData.name}
-                        style={{ 
-                          transform: `scale(${currentScale})`,
-                          transition: 'transform 0.2s ease, opacity 0.2s',
-                          transformOrigin: 'center'
-                        }}
-                      />
+                      {isImageReady ? (
+                        <img 
+                          src={imageState} 
+                          alt={item.logoData.name} 
+                          title={item.logoData.name}
+                          crossOrigin="anonymous"
+                          style={{ 
+                            transform: `scale(${currentScale})`,
+                            transition: 'transform 0.2s ease, opacity 0.2s',
+                            transformOrigin: 'center'
+                          }}
+                        />
+                      ) : (
+                        <div className="skeleton-loader" style={{ transform: `scale(${currentScale})` }}></div>
+                      )}
                       <div className="zoom-controls" data-html2canvas-ignore="true">
                         <button onClick={() => updateScale(item.logoData.name, -0.1)}>-</button>
                         <span>{currentScale.toFixed(1)}x</span>
