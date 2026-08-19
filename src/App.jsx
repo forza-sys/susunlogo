@@ -220,6 +220,11 @@ function App() {
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
                   rows={5}
+                  style={{
+                    borderColor: matchedLogos.some(item => !item.found) ? '#ef4444' : 'var(--border-color)',
+                    backgroundColor: matchedLogos.some(item => !item.found) ? '#fef2f2' : '#ffffff',
+                    borderWidth: matchedLogos.some(item => !item.found) ? '2px' : '1px'
+                  }}
                 />
               </div>
               
