@@ -226,8 +226,9 @@ function App() {
                     minHeight: '135px',
                     resize: 'vertical',
                     borderColor: matchedLogos.some(item => !item.found) ? '#ef4444' : 'var(--border-color)',
-                    backgroundColor: matchedLogos.some(item => !item.found) ? '#fef2f2' : '#ffffff',
-                    borderWidth: matchedLogos.some(item => !item.found) ? '2px' : '1px'
+                    backgroundColor: '#ffffff',
+                    borderWidth: matchedLogos.some(item => !item.found) ? '2px' : '1px',
+                    outline: 'none'
                   }}
                 />
               </div>
