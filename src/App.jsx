@@ -213,25 +213,23 @@ function App() {
           <div className="form-group">
             <label htmlFor="opz-input">Masukkan Nama OPZ (Pisahkan dengan koma atau baris baru)</label>
             <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>
-              <div style={{ flex: 1, display: 'flex' }}>
-                <textarea
-                  id="opz-input"
-                  value={inputText}
-                  onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
-                  rows={5}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    minHeight: '135px',
-                    resize: 'vertical',
-                    borderColor: matchedLogos.some(item => !item.found) ? '#ef4444' : 'var(--border-color)',
-                    backgroundColor: '#ffffff',
-                    borderWidth: matchedLogos.some(item => !item.found) ? '2px' : '1px',
-                    outline: 'none'
-                  }}
-                />
-              </div>
+              <textarea
+                id="opz-input"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
+                rows={5}
+                style={{
+                  flex: 1,
+                  minHeight: '135px',
+                  resize: 'vertical',
+                  borderColor: matchedLogos.some(item => !item.found) ? '#ef4444' : 'var(--border-color)',
+                  backgroundColor: '#ffffff',
+                  borderWidth: matchedLogos.some(item => !item.found) ? '2px' : '1px',
+                  outline: 'none',
+                  margin: 0
+                }}
+              />
               
               {matchedLogos.some(item => !item.found) && (
                 <div style={{ 
