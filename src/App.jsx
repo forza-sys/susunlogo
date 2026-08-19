@@ -324,26 +324,31 @@ function App() {
                 style={{ height: '54px', boxSizing: 'border-box' }}
               />
             </div>
-            <button className="export-btn" onClick={copyShareLink} style={{ height: '54px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              Copy link ↗
-            </button>
-            {matchedLogos.length > 0 && (
-              <button 
-                className="export-btn" 
-                onClick={handleExport}
-                style={{ 
-                  height: '54px', 
-                  boxSizing: 'border-box', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  opacity: isExportReady ? 1 : 0.6, 
-                  cursor: isExportReady ? 'pointer' : 'not-allowed' 
-                }}
-              >
-                {isExportReady ? 'Export to PNG ↗' : 'Loading Images... ⌛'}
+            
+            <div style={{ width: '300px', display: 'flex', gap: '10px' }}>
+              <button className="export-btn" onClick={copyShareLink} style={{ flex: 1, height: '54px', padding: '0 10px', boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                Copy link ↗
               </button>
-            )}
+              {matchedLogos.length > 0 && (
+                <button 
+                  className="export-btn" 
+                  onClick={handleExport}
+                  style={{ 
+                    flex: 1,
+                    height: '54px', 
+                    padding: '0 10px',
+                    boxSizing: 'border-box', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    opacity: isExportReady ? 1 : 0.6, 
+                    cursor: isExportReady ? 'pointer' : 'not-allowed' 
+                  }}
+                >
+                  {isExportReady ? 'Export to PNG ↗' : 'Loading... ⌛'}
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
