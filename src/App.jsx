@@ -212,13 +212,38 @@ function App() {
         <div className="controls-card">
           <div className="form-group">
             <label htmlFor="opz-input">Masukkan Nama OPZ (Pisahkan dengan koma atau baris baru)</label>
-            <textarea
-              id="opz-input"
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
-              rows={5}
-            />
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+              <div style={{ flex: 1 }}>
+                <textarea
+                  id="opz-input"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
+                  rows={5}
+                />
+              </div>
+              
+              {matchedLogos.some(item => !item.found) && (
+                <div style={{ 
+                  width: '300px', 
+                  background: '#fef2f2', 
+                  border: '1px solid #fecaca', 
+                  borderRadius: '8px', 
+                  padding: '15px', 
+                  maxHeight: '135px', 
+                  overflowY: 'auto' 
+                }}>
+                  <p style={{ color: '#ef4444', fontSize: '0.9rem', margin: '0 0 10px 0', fontWeight: '600' }}>⚠️ Tidak Ditemukan:</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {matchedLogos.filter(item => !item.found).map((item, idx) => (
+                      <span key={idx} style={{ background: '#fee2e2', color: '#991b1b', fontSize: '0.8rem', padding: '4px 8px', borderRadius: '4px', border: '1px solid #fca5a5' }}>
+                        {item.queryName}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
             <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <button 
                 type="button" 
@@ -364,14 +389,6 @@ function App() {
               </div>
             </div>
 
-            {matchedLogos.some(item => !item.found) && (
-              <div className="missing-logos">
-                <p style={{width: '100%', color: '#fca5a5', fontSize: '0.9rem', marginBottom: '10px'}}>Tidak ditemukan:</p>
-                {matchedLogos.filter(item => !item.found).map((item, idx) => (
-                  <span key={idx} className="missing-badge">{item.queryName}</span>
-                ))}
-              </div>
-            )}
           </div>
         )}
       </main>
