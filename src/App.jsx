@@ -212,8 +212,8 @@ function App() {
         <div className="controls-card">
           <div className="form-group">
             <label htmlFor="opz-input">Masukkan Nama OPZ (Pisahkan dengan koma atau baris baru)</label>
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
-              <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>
+              <div style={{ flex: 1, display: 'flex' }}>
                 <textarea
                   id="opz-input"
                   value={inputText}
@@ -221,6 +221,10 @@ function App() {
                   placeholder="Contoh: Dompet Dhuafa, Rumah Zakat, BAZMA..."
                   rows={5}
                   style={{
+                    width: '100%',
+                    height: '100%',
+                    minHeight: '135px',
+                    resize: 'vertical',
                     borderColor: matchedLogos.some(item => !item.found) ? '#ef4444' : 'var(--border-color)',
                     backgroundColor: matchedLogos.some(item => !item.found) ? '#fef2f2' : '#ffffff',
                     borderWidth: matchedLogos.some(item => !item.found) ? '2px' : '1px'
@@ -235,7 +239,6 @@ function App() {
                   border: '1px solid #fecaca', 
                   borderRadius: '8px', 
                   padding: '15px', 
-                  maxHeight: '135px', 
                   overflowY: 'auto' 
                 }}>
                   <p style={{ color: '#ef4444', fontSize: '0.9rem', margin: '0 0 10px 0', fontWeight: '600' }}>⚠️ Tidak Ditemukan:</p>
@@ -249,7 +252,7 @@ function App() {
                 </div>
               )}
             </div>
-            <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-start', gap: '10px', alignItems: 'center' }}>
               <button 
                 type="button" 
                 onClick={() => setShowOpzList(!showOpzList)} 
